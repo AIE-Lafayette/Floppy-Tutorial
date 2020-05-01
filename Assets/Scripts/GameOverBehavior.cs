@@ -5,22 +5,13 @@ using UnityEngine.UI;
 
 public class GameOverBehavior : MonoBehaviour
 {
+    //A reference to a Text object
     public Text gameOverText;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // OnCollisionEnter is called when the object's collider makes contact with another collider
     void OnCollisionEnter(Collision collision)
     {
+        //Display the text "Game Over!"
         gameOverText.text = "Game Over!";
     }
 }
