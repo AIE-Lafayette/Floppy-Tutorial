@@ -32,16 +32,16 @@ using UnityEngine;
 public class FlappingBehavior : MonoBehaviour
 {
     //The strength of each flap
-    public float power = 1.0f;
+    public float Power = 1.0f;
 
     //A reference to the object's Rigidbody, used for physics calculations
-    private Rigidbody body;
+    private Rigidbody _body;
 
     // Start is called before the first frame update
     void Start()
     {
         //Get a reference to the Rigidbody
-        body = GetComponent<Rigidbody>();
+        _body = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -51,7 +51,7 @@ public class FlappingBehavior : MonoBehaviour
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             //Calculate the new velocity
-            body.velocity = new Vector3(0, 1, 0) * power;
+            _body.velocity = new Vector3(0, 1, 0) * Power;
         }
     }
 }
@@ -69,7 +69,24 @@ Now we need an obstacle. For this we can create a simple pipe. Right-click and e
 
 Something to consider is that the Bird actually doesn't need to move forward at all. We can save ourselves the trouble of moving the camera by simply moving the pipes instead!
 
-Click the Add Component button and search "Constant Force". When you add the Constant Force component to the Pipe, it will automatically receive a Rigidbody component with it. This is because the Constant Force can't work without it. Mass is required in order to calculate movement from force. Start by setting the Pipe's Mass to 10, then uncheck Gravity. We don't want the Pipe to be brushed aside by the Bird, and we don't want it to fall, either. Next change its Force on the X axis to -10. This will cause it to move gradually to the left of our view.
+Click the Add Component button and give the pipe a RigidBody. Set it to not use gravity. We don't want the pipe to fall! Also set it to be kinematic. This will allow it to move via script. Now add a new Script called "PipeBehavior" to the pipe and change its text to the following:
+
+```C#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PipeBehavior : MonoBehaviour
+{
+    public float Speed = 1.0f;
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.position += new Vector3(-Speed * Time.deltaTime, 0.0f, 0.0f);
+    }
+}
+```
 
 Run the game and see what happens.
 
@@ -114,13 +131,13 @@ using UnityEngine.UI;
 public class GameOverBehavior : MonoBehaviour
 {
     //A reference to a Text object
-    public Text gameOverText;
+    public Text GameOverText;
 
     // OnCollisionEnter is called when the object's collider makes contact with another collider
     void OnCollisionEnter(Collision collision)
     {
         //Display the text "Game Over!"
-        gameOverText.text = "Game Over!";
+        GameOverText.text = "Game Over!";
     }
 }
 ```
