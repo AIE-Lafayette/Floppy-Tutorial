@@ -5,16 +5,16 @@ using UnityEngine;
 public class FlappingBehavior : MonoBehaviour
 {
     //The strength of each flap
-    public float power = 1.0f;
+    public float Power = 1.0f;
 
     //A reference to the object's Rigidbody, used for physics calculations
-    private Rigidbody body;
+    private Rigidbody _body;
 
     // Start is called before the first frame update
     void Start()
     {
         //Get a reference to the Rigidbody
-        body = GetComponent<Rigidbody>();
+        _body = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class FlappingBehavior : MonoBehaviour
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             //Calculate the new velocity
-            body.velocity = new Vector3(0, 1, 0) * power;
+            _body.velocity = new Vector3(0, 1, 0) * Power;
         }
     }
 }
