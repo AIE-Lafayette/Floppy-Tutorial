@@ -1,6 +1,6 @@
-# Flappy Bird Tutorial
+# Floppy Tutorial
 
-In this tutorial we will create a simple clone of the mobile game Flappy Bird. Our very first step is to create a new project in Unity. This tutorial was made using Unity version 2019.3.10f1, but it should work with no trouble in most versions.
+In this tutorial we will create a simple clone of the mobile game Flappy Bird. Our very first step is to create a new project in Unity. This tutorial was made using Unity version 2019.3.10f1. It is recommended that you install and create a project using this version.
 
 ## Creating the Bird
 
