@@ -153,3 +153,7 @@ If you right-click on the Bird, you can add objects as children of it. Add a cyl
 You can also add a lip to the pipe using another carefully placed cylinder.
 
 Decorate your scene however you like. See what improvements you can make on your own!
+
+## Creating a Unity Package
+
+To export a package for distribution, click on `Assets` &rarr; `Export Package...`. Then, in the window that appears, ensure that _all_ items are selected and click `Export...`. This will create a unitypackage file which can be sent as an attachment in an email or other message.
