@@ -4,7 +4,7 @@ In this tutorial we will create a simple clone of the mobile game Flappy Bird. O
 
 ## Creating the Bird
 
-Once our project is open, let's start by creating something to represent the bird. We'll make a sphere. In the Hierarchy window, right-click an empty space and select 3D Object -> Sphere. This will create a sphere in the scene. After creating the sphere, we can rename it. Call it "Bird". If we run the game now, the sphere probably isn't positioned in a way that makes it easy for us to see it. We can fix this by repositioning it.
+Once our project is open, let's start by creating something to represent the bird. We'll make a sphere. In the Hierarchy window, right-click an empty space and select 3D Object &rarr; Sphere. This will create a sphere in the scene. After creating the sphere, we can rename it. Call it "Bird". If we run the game now, the sphere probably isn't positioned in a way that makes it easy for us to see it. We can fix this by repositioning it.
 
 Every GameObject in Unity has what's called a Transform matrix. The Transform matrix keeps track of the object's Position, Rotation, and Scale.
 
@@ -20,7 +20,7 @@ Now run the game. The bird falls straight down! This is actually what we want to
 
 Specialized behavior like flapping can be accomplished with scripts. Scripting in Unity allows us to create custom components that can do almost anything we want.
 
-Right click in the Asset window and select Create -> C# Script. Name the script "FlappingBehavior". Double-click the script to open it.
+Right click in the Asset window and select Create &rarr; C# Script. Name the script "FlappingBehavior". Double-click the script to open it.
 
 Modify the text of the file so it looks like the following:
 
@@ -65,7 +65,7 @@ Now when we run we are able to flap a little bit when we press spacebar or left-
 
 ## Creating a Pipe
 
-Now we need an obstacle. For this we can create a simple pipe. Right-click and empty area in the Hierarchy window and select 3D Object -> Cylinder. Name is "Pipe". Change its position to (10, -10, 0). If we run now, not much has changed. We can see the Pipe, but it doesn't do anything. We'll have to add some components.
+Now we need an obstacle. For this we can create a simple pipe. Right-click and empty area in the Hierarchy window and select 3D Object &rarr; Cylinder. Name is "Pipe". Change its position to (10, -10, 0). If we run now, not much has changed. We can see the Pipe, but it doesn't do anything. We'll have to add some components.
 
 Something to consider is that the Bird actually doesn't need to move forward at all. We can save ourselves the trouble of moving the camera by simply moving the pipes instead!
 
@@ -94,7 +94,7 @@ Now it's starting to feel a little bit like a game! Let's make it look a little 
 
 ## Applying Materials
 
-Right-click in the Project window and select Create -> Material. Name the Material "Feathers". Materials can be applied to the surface of an object's mesh to apply colors, textures, and other visual effects.  This one will be used to color the Bird's sphere. Select Feathers in the Project window and change the Albedo color to a bright yellow, or any color of your choice. You can also adjust the Metallic and Smoothness down to 0 to give the Bird a very soft appearance.
+Right-click in the Project window and select Create &rarr; Material. Name the Material "Feathers". Materials can be applied to the surface of an object's mesh to apply colors, textures, and other visual effects.  This one will be used to color the Bird's sphere. Select Feathers in the Project window and change the Albedo color to a bright yellow, or any color of your choice. You can also adjust the Metallic and Smoothness down to 0 to give the Bird a very soft appearance.
 
 We can also make another material called Metal. This one will be used for the Pipe. Change its color to a bright green or other color, then set its Metallic to 1 and leave Smoothness at 0.5.
 
@@ -116,7 +116,7 @@ Click the arrow in the top left corner of the Hierarchy window to return to the 
 
 ## Creating a Game Over Message
 
-Finally, we're going to send a message to the screen to indicate that the player has lost if they collide with another object. To do this, we'll need to create a UI element. First, in the Hierarchy window, create a UI -> Canvas. The Canvas is the 2D space we'll use to place the UI elements. Next, right-click the Canvas in the Hierarchy window and select UI -> Text. This will create a Text object in the center of the Canvas and thus the center of the screen. In the Inspector window, scroll down to the Text component and change the properties to suit a Game Over message. If you need a good view of the text, you can change the Scene window to 2D mode by clicking the 2D button at the top of it, then zooming out and panning to see the entire Canvas. Once you like the way the text looks (I recommend size 27, center alignment, red color), clear the Text field. We don't want any text to display until the right time.
+Finally, we're going to send a message to the screen to indicate that the player has lost if they collide with another object. To do this, we'll need to create a UI element. First, in the Hierarchy window, create a UI &rarr; Canvas. The Canvas is the 2D space we'll use to place the UI elements. Next, right-click the Canvas in the Hierarchy window and select UI &rarr; Text. This will create a Text object in the center of the Canvas and thus the center of the screen. In the Inspector window, scroll down to the Text component and change the properties to suit a Game Over message. If you need a good view of the text, you can change the Scene window to 2D mode by clicking the 2D button at the top of it, then zooming out and panning to see the entire Canvas. Once you like the way the text looks (I recommend size 27, center alignment, red color), clear the Text field. We don't want any text to display until the right time.
 
 We want the text to appear when the Bird collides with something. For this, we want another script. Create a new C# Script called GameOverBehavior, and open it.
 
@@ -156,4 +156,4 @@ Decorate your scene however you like. See what improvements you can make on your
 
 ## Creating a Unity Package
 
-To export a package for distribution, click on `Assets` &rarr; `Export Package...`. Then, in the window that appears, ensure that _all_ items are selected and click `Export...`. This will create a unitypackage file which can be sent as an attachment in an email or other message.
+To export a package for distribution, first, make sure everything has been saved. Click `File` &rarr; `Save` to save the scene. Then, click on `Assets` &rarr; `Export Package...`. In the window that appears, ensure that _all_ items are selected and click `Export...`. This will create a unitypackage file which can be sent as an attachment in an email or other message.
